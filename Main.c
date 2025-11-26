@@ -52,6 +52,9 @@ int main(void) {
     return 0;
 }
 
+/* ------------------------------------------------------
+   Rock-Paper-Scissors GAME (INFINITE LOOP)
+---------------------------------------------------------*/
 void play_rps(void) {
     srand(time(0));
 
@@ -92,36 +95,45 @@ void play_rps(void) {
     }
 }
 
+/* ------------------------------------------------------
+   Guess The Number — ABSOLUTE WARMER / COLDER
+   (No trend, no direction. Only closeness matters.)
+---------------------------------------------------------*/
 void play_guess_number(void) {
     srand(time(NULL));
     int number = (rand() % 100) + 1;  
     int guess;
     int attempts = 0;
+    int max_attempts = 10;
 
-    printf("\nGuess The Number (Warmer = Close, Colder = Far)\n");
+    printf("\nGuess The Number (10 chances!)\n");
+    printf("Warmer = close, Colder = far\n");
 
-    while (1) {
-        printf("Enter guess: ");
+    while (attempts < max_attempts) {
+        printf("Chance %d/%d\nEnter guess: ", attempts + 1, max_attempts);
         scanf("%d", &guess);
         attempts++;
 
         if (guess == number) {
-            printf("Correct! You guessed it in %d attempts.\n\n", attempts);
-            break;
+            printf("🎉 Correct! You guessed it in %d attempts.\n\n", attempts);
+            return;
         }
 
         int diff = abs(number - guess);
 
         if (diff <= 5)
-            printf("🔥 Very Warm!\n");
+            printf("🔥 Very Warm!\n\n");
         else if (diff <= 10)
-            printf("Warm.\n");
+            printf("Warm.\n\n");
         else if (diff <= 20)
-            printf("Cold.\n");
+            printf("Cold.\n\n");
         else
-            printf("❄️ Very Cold.\n");
+            printf("❄️ Very Cold.\n\n");
     }
+
+    printf("❌ Out of chances! The number was %d.\n\n", number);
 }
+
 
 /* ------------------------------------------------------
    Math Blaster GAME
@@ -131,7 +143,7 @@ void play_math_blaster(void) {
     int correct = 0;
     int total = 5;
 
-    printf("\nMath Blaster - Solve 5 quick math questions!\n");
+    printf("\nMath Blaster — Solve 5 quick math questions!\n");
 
     for (int i = 1; i <= total; i++) {
         int a = (rand() % 20) + 1;
@@ -167,4 +179,3 @@ void play_math_blaster(void) {
     printf("\nMath Blaster Complete!\n");
     printf("Score: %d/%d\n\n", correct, total);
 }
-
