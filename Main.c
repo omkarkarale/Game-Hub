@@ -52,9 +52,6 @@ int main(void) {
     return 0;
 }
 
-/* ------------------------------------------------------
-   Rock-Paper-Scissors GAME (INFINITE LOOP)
----------------------------------------------------------*/
 void play_rps(void) {
     srand(time(0));
 
@@ -95,10 +92,6 @@ void play_rps(void) {
     }
 }
 
-/* ------------------------------------------------------
-   Guess The Number — ABSOLUTE WARMER / COLDER
-   (No trend, no direction. Only closeness matters.)
----------------------------------------------------------*/
 void play_guess_number(void) {
     srand(time(NULL));
     int number = (rand() % 100) + 1;  
@@ -138,7 +131,7 @@ void play_math_blaster(void) {
     int correct = 0;
     int total = 5;
 
-    printf("\nMath Blaster — Solve 5 quick math questions!\n");
+    printf("\nMath Blaster - Solve 5 quick math questions!\n");
 
     for (int i = 1; i <= total; i++) {
         int a = (rand() % 20) + 1;
@@ -174,3 +167,4 @@ void play_math_blaster(void) {
     printf("\nMath Blaster Complete!\n");
     printf("Score: %d/%d\n\n", correct, total);
 }
+
